@@ -18,15 +18,17 @@ public class Product {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(length = 32)
+    @Column( nullable = false, length = 100)
     private String name;
 
-    @Column(length = 100)
+    @Column(name = "serial_number", length = 100)
     private String serialNumber;
 
+    private Short price;
 
-    public Product(String name, String serialNumber) {
+    public Product(String name, String serialNumber, Short price) {
         this.name = name;
         this.serialNumber = serialNumber;
+        this.price = price;
     }
 }

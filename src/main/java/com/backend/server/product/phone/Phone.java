@@ -1,6 +1,7 @@
 package com.backend.server.product.phone;
 
 import com.backend.server.product.Product;
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Table;
 import lombok.*;
@@ -16,22 +17,26 @@ import java.util.Objects;
 @ToString
 public class Phone extends Product {
 
-
+    @Column(name = "screen_height")
     private Short screenHeight;
+    @Column(name = "screen_width")
     private Short screenWidth;
     private Short ram;
     private Short storage;
 
-    public Phone( String name, String serialNumber, Short screenHeight, Short screenWidth, Short ram, Short storage) {
-        super( name, serialNumber);
+
+    public Phone(String name, String serialNumber,Short price,
+                 Short screenHeight, Short screenWidth, Short ram, Short storage) {
+        super(name, serialNumber,price);
         this.screenHeight = screenHeight;
         this.screenWidth = screenWidth;
         this.ram = ram;
         this.storage = storage;
     }
 
-    public Phone(Long id, String name, String serialNumber, Short ram, Short storage) {
-        super(id, name, serialNumber);
+    public Phone(Long id, String name, String serialNumber,Short price,
+                 Short ram, Short storage) {
+        super(id, name, serialNumber,price);
         this.ram = ram;
         this.storage = storage;
     }
