@@ -1,4 +1,4 @@
-package com.backend.server.product.laptops;
+package com.backend.server.product.laptop;
 
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.context.annotation.Bean;

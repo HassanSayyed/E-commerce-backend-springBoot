@@ -1,9 +1,10 @@
-package com.backend.server.product.laptops;
+package com.backend.server.product.laptop;
 
 import com.backend.server.product.Product;
-import com.backend.server.user.Role;
 import jakarta.persistence.*;
 import lombok.*;
+
+import java.util.Objects;
 
 @Entity
 @Table(name = "laptop")
@@ -35,5 +36,18 @@ public class Laptop extends Product {
         this.storageType = storageType;
         this.ram = ram;
         this.storage = storage;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Laptop laptop = (Laptop) o;
+        return Objects.equals(screenHeight, laptop.screenHeight) && Objects.equals(screenWidth, laptop.screenWidth) && storageType == laptop.storageType && Objects.equals(ram, laptop.ram) && Objects.equals(storage, laptop.storage);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(screenHeight, screenWidth, storageType, ram, storage);
     }
 }

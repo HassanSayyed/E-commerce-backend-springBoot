@@ -1,4 +1,4 @@
-package com.backend.server.product.laptops;
+package com.backend.server.product.laptop;
 
 public enum StorageType {
     SSD,
